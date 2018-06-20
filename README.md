@@ -51,3 +51,66 @@ Java로 학생부 프로그램을 만듭니다.
 
 다하고 본인의 git repository에 업로드 해주세요!
 모르는건 아무때나 물어보셔도 됩니다!
+
+## 2주차
+
+### 1. Hello World 띄워보기
+* STS, MySQL을 설치한다!
+* STS(IntellJ)와 같은 IDE에서 SpringBoot 프로젝트를 생성한 뒤 아래의 Controller를 추가한다
+  - 프로젝트 생성할 때 spring initializr를 선택하고 web, mybatis, mysql을 추가로 선택한다
+  - 프로젝트 load 후 mysql 설정을 application-properties에 입력한다
+  ```
+  spring.datasource.url=jdbc:mysql://localhost:3306/school
+spring.datasource.username=??
+spring.datasource.password=??
+  ```
+
+```java
+package com.nhnent.rookie5.sample;
+
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
+
+@Controller
+public class HelloWorldController {
+
+    @GetMapping("/helloworld")
+    @ResponseBody
+    public String helloWorld() {
+        return "Hello World!";
+    }
+}
+```
+HelloWorldController.java
+
+* 프로젝트 build 빌드 후 http://localhost:8080/helloworld 에 접속해서 "helloworld!"가 제대로 print되는지 확인한다
+
+### 2. Console Program -> Spring Project
+* 기존에 만들었던 학생부 프로젝트를 Spring 기반 웹 프로젝트로 교체하기
+  1. sourceTree를 이용해서 https://github.com/mskwon25/springstudy.git 프로젝트를 Clone한다.
+  2. sourcetree에서 branch를 선택하고 `feature/minseok_kwon` 형식의 새로운 브랜치를 생성한다
+  (이후 master가 아닌 생성한 브랜치에서만 작업)
+  3. sts를 실행한뒤 해당프로젝트 경로를 입력하고 프로젝트를 import시킨다.
+  4. application.properties 파일에서 mysql관련 설정을 변경한다
+  5. src/test/java/com/springstudy/first/demo/service/UserServiceTests를 실행시켜서 존재하는 2개의 테스트를 완성시킨다
+  `resources/UserMapper`에 Query를 알맞게 설정해야 테스트가 완성됨.
+  6. UserServiceTests가 모두 성공한다면 같은 방식으로 교수, 학점, 학과 모두 생성한다.
+
+
+* table 생성 쿼리
+```sql
+CREATE TABLE student (
+  student_id int,
+  student_name varchar(10),
+  student_birthday varchar(10),
+  primary key(student_id)
+);
+```
+
+* 다 완성하신 분들 파일 업로드 하는법
+  1. sourceTree에 들어가서 파일상태를 클릭한 후 커밋메세지 칸에
+  text(과제 완료....)를 입력한후 커밋 버튼을 누른다
+  2. 상단에 푸시 버튼을 눌러서 푸쉬한다
+  3. https://github/mskwon25/springstudy 에 접속해서 pullRequest 탭을 누른다
+  4. add PullRequest 버튼을 누르고 base:master로 설정하고 pullRequest를 create한다. 최종 merge요청은 하지마세요!!
