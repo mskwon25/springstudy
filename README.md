@@ -59,11 +59,13 @@ Java로 학생부 프로그램을 만듭니다.
 * STS(IntellJ)와 같은 IDE에서 SpringBoot 프로젝트를 생성한 뒤 아래의 Controller를 추가한다
   - 프로젝트 생성할 때 spring initializr를 선택하고 web, mybatis, mysql을 추가로 선택한다
   - 프로젝트 load 후 mysql 설정을 application-properties에 입력한다
-  ```
-  spring.datasource.url=jdbc:mysql://localhost:3306/school
+
+```
+spring.datasource.url=jdbc:mysql://localhost:3306/school
 spring.datasource.username=??
 spring.datasource.password=??
-  ```
+```
+
 
 ```java
 package com.nhnent.rookie5.sample;
@@ -82,6 +84,7 @@ public class HelloWorldController {
     }
 }
 ```
+
 HelloWorldController.java
 
 * 프로젝트 build 빌드 후 http://localhost:8080/helloworld 에 접속해서 "helloworld!"가 제대로 print되는지 확인한다
