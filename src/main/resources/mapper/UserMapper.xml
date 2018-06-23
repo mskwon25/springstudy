@@ -5,19 +5,26 @@
 
 <mapper namespace="com.springstudy.firstdemo.mapper.UserMapper">
     <insert id="registerStudent" parameterType="com.springstudy.firstdemo.model.Student">
-
+		INSERT INTO student(student_id, student_name, student_birthday)
+		VALUES (#{id}, #{name}, #{dateOfBirth});
+		
 	</insert>
     <select id="getStudentById" resultType="com.springstudy.firstdemo.model.Student">
-
+		SELECT student_id, student_name, student_birthday
+		FROM student
+		WHERE student_id=#{id};
 	</select>
     <select id="getAllStudents" resultType="com.springstudy.firstdemo.model.Student">
-
+		SELECT student_id, student_name, student_birthday
+		FROM student;
 	</select>
 	<delete id="deleteStudentById">
-
+		DELETE
+		FROM student
+		WHERE student_id=#{id};
 	</delete>
 	<delete id="deleteAllStudents">
 		DELETE
-		FROM student
+		FROM student;
 	</delete>
 </mapper>
