@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE mapper
+		PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+		"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.springstudy.firstdemo.mapper.ScoreMapper">
+
+	<insert id="registerScore" parameterType="com.springstudy.firstdemo.model.Score">
+		INSERT INTO score(score_id, student_id, subject_id, score)
+		VALUES (#{id}, #{studentId}, #{subjectId}, #{score});
+	</insert>
+	
+	<select id="getScoresByStudentId" resultType="com.springstudy.firstdemo.model.Score">
+		SELECT score_id, student_id, subject_id, score
+		FROM score
+		WHERE student_id = #{studentId};
+	</select>
+	
+	<select id="getScoresBySubjectId" resultType="com.springstudy.firstdemo.model.Score">
+		SELECT score_id, student_id, subject_id, score
+		FROM score
+		WHERE subject_id = #{subjectId};
+	</select>
+	
+	<delete id="deleteScoreById">
+		DELETE
+		FROM score
+		WHERE score_id = #{id};
+	</delete>
+	
+	<delete id="deleteAllScores">
+		DELETE
+		FROM score;
+	</delete>
+	
+</mapper>

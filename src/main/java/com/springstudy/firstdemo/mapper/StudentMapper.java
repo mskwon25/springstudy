@@ -8,7 +8,7 @@ import java.util.List;
 
 @Mapper
 @Repository
-public interface UserMapper {
+public interface StudentMapper {
     void registerStudent(Student student);
 
     Student getStudentById(int id);

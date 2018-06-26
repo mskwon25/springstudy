@@ -14,7 +14,7 @@ import org.springframework.stereotype.Repository;
 public class SubjectService {
 	
 	@Autowired
-	SubjectMapper subjectMapper;
+	private SubjectMapper subjectMapper;
 	
 	public void addSubject(Subject subject) {
 		subjectMapper.registerSubject(subject);

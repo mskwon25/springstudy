@@ -1,6 +1,6 @@
 package com.springstudy.firstdemo.service;
 
-import com.springstudy.firstdemo.mapper.UserMapper;
+import com.springstudy.firstdemo.mapper.StudentMapper;
 import com.springstudy.firstdemo.model.Student;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
@@ -10,28 +10,28 @@ import java.util.List;
 
 @Service
 @Repository
-public class UserService {
+public class StudentService {
 
     @Autowired
-    UserMapper userMapper;
+    private StudentMapper studentMapper;
 
     public void addStudent(Student student) {
-        userMapper.registerStudent(student);
+    	studentMapper.registerStudent(student);
     }
 
     public Student getStudentById(int studentId) {
-        return userMapper.getStudentById(studentId);
+        return studentMapper.getStudentById(studentId);
     }
 
     public List<Student> getAllStudents() {
-        return userMapper.getAllStudents();
+        return studentMapper.getAllStudents();
     }
 
     public void deleteStudent(int studentId) {
-        userMapper.deleteStudentById(studentId);
+    	studentMapper.deleteStudentById(studentId);
     }
 
     public void deleteAllStudents() {
-        userMapper.deleteAllStudents();
+    	studentMapper.deleteAllStudents();
     }
 }

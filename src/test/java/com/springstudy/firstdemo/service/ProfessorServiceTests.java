@@ -17,7 +17,7 @@ import com.springstudy.firstdemo.model.Professor;
 public class ProfessorServiceTests {
 
 	@Autowired
-	ProfessorService professorService;
+	private ProfessorService professorService;
 	
 	@Before
 	public void setUp() throws Exception {

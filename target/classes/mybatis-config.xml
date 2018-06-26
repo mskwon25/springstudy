@@ -8,8 +8,9 @@
         <package name="com.springstudy.firstdemo.model"/>
     </typeAliases>
     <mappers>
-        <mapper resource="mapper/UserMapper.xml"/>
+        <mapper resource="mapper/StudentMapper.xml"/>
         <mapper resource="mapper/ProfessorMapper.xml"/>
         <mapper resource="mapper/SubjectMapper.xml"/>
+        <mapper resource="mapper/ScoreMapper.xml"/>
     </mappers>
 </configuration>

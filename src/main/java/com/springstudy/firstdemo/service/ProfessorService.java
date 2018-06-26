@@ -13,7 +13,7 @@ import java.util.List;
 public class ProfessorService {
 
 	@Autowired
-	ProfessorMapper professorMapper;
+	private ProfessorMapper professorMapper;
 	
 	public void addProfessor(Professor professor) {
 		professorMapper.registerProfessor(professor);
