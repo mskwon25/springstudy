@@ -18,6 +18,8 @@ public class UserServiceTests {
 
     @Autowired
     UserService userService;
+    
+    
 
     @Before
     public void setUp() throws Exception {
