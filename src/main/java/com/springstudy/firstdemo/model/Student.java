@@ -2,37 +2,46 @@ package com.springstudy.firstdemo.model;
 
 public class Student {
 
-    private int id;
-    private String name;
-    private String dateOfBirth;
-
-    public Student(int id, String name, String birth) {
-        this.id = id;
-        this.name = name;
-        this.dateOfBirth = birth;
+    private int student_id;
+    private String student_name;
+    private String student_birthday;
+	
+    public Student()
+    {
+    	this.student_id = 0;
+    	this.student_name = "default_name";
+    	this.student_birthday = "default_birth";
     }
+    public Student(int student_id, String student_name, String student_birthday) {
+		super();
+		this.student_id = student_id;
+		this.student_name = student_name;
+		this.student_birthday = student_birthday;
+	}
 
-    public int getId() {
-        return id;
-    }
+	public int getStudent_id() {
+		return student_id;
+	}
 
-    public void setId(int id) {
-        this.id = id;
-    }
+	public void setStudent_id(int student_id) {
+		this.student_id = student_id;
+	}
 
-    public String getName() {
-        return name;
-    }
+	public String getStudent_name() {
+		return student_name;
+	}
 
-    public void setName(String name) {
-        this.name = name;
-    }
+	public void setStudent_name(String student_name) {
+		this.student_name = student_name;
+	}
 
-    public String getDateOfBirth() {
-        return dateOfBirth;
-    }
+	public String getStudent_birthday() {
+		return student_birthday;
+	}
 
-    public void setDateOfBirth(String dateOfBirth) {
-        this.dateOfBirth = dateOfBirth;
-    }
+	public void setStudent_birthday(String student_birthday) {
+		this.student_birthday = student_birthday;
+	}
+    
+    
 }
