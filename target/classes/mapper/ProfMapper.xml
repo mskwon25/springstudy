@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+        
+      
+    
+<mapper namespace="com.springstudy.firstdemo.mapper.ProfMapper">
+		<resultMap id="ProfessorMap" type="Professor">
+       		<result property="num" column="prof_num" />
+        	<result property="name" column="prof_name" />
+        	<result property="subject" column="prof_sub" />
+        	<result property="birthday" column="prof_birthday" />
+        </resultMap>
+    <insert id="registerProfessor" parameterType="com.springstudy.firstdemo.model.Professor">
+        INSERT INTO professor values(#{prof_num},#{prof_name},#{prof_birthday},#{prof_sub})
+	</insert>
+    <select id="getProfessorById" resultType="com.springstudy.firstdemo.model.Professor">
+        SELECT prof_name FROM professor WHERE(prof_num=#{prof_num})
+
+	</select>
+    <select id="getAllProfessors" resultType="com.springstudy.firstdemo.model.Professor">
+        SELECT * FROM professor
+
+	</select>
+	<delete id="deleteProfessorById">
+        delete 
+        FROM professor
+        WHERE(prof_num=#{prof_num})
+
+	</delete>
+	<delete id="deleteAllProfessors">
+		DELETE
+		FROM professor
+	</delete>
+</mapper>

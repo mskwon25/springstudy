@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+        
+      
+    
+<mapper namespace="com.springstudy.firstdemo.mapper.StudentMapper">
+		<resultMap id="StudentMap" type="Student">
+       		<result property="id" column="student_id" />
+        	<result property="name" column="student_name" />
+        	<result property="birthday" column="student_birthday" />
+        </resultMap>
+    <insert id="registerStudent" parameterType="com.springstudy.firstdemo.model.Student">
+        INSERT INTO student values(#{student_id},#{student_name},#{student_birthday})
+	</insert>
+    <select id="getStudentById" resultType="com.springstudy.firstdemo.model.Student">
+        SELECT student_name FROM student WHERE(student_id=#{student_id})
+
+	</select>
+    <select id="getAllStudents" resultType="com.springstudy.firstdemo.model.Student">
+        SELECT * FROM student
+
+	</select>
+	<delete id="deleteStudentById">
+        delete 
+        FROM student 
+        WHERE(student_id=#{student_id})
+
+	</delete>
+	<delete id="deleteAllStudents">
+		DELETE
+		FROM student
+	</delete>
+</mapper>

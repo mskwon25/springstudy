@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+        
+      
+    
+<mapper namespace="com.springstudy.firstdemo.mapper.GradeMapper">
+		<resultMap id="GradeMap" type="Grade">
+       		<result property="grade_num" column="grade_num" />
+        	<result property="grade_student_id" column="grade_student_id" />
+        	<result property="grade_sub_id" column="grade_sub_id" />
+        	<result property="grade_score" column="grade_score" />
+        </resultMap>
+    <insert id="registerGrade" parameterType="com.springstudy.firstdemo.model.Grade">
+        INSERT INTO grade values(#{grade_num},#{grade_student_id},#{grade_sub_id},#{grade_score})
+	</insert>
+    <select id="getGradeById" resultType="com.springstudy.firstdemo.model.Grade">
+        SELECT * FROM grade
+
+	</select>
+    <select id="getAllGrades" resultType="com.springstudy.firstdemo.model.Grade">
+        SELECT * FROM grade
+
+	</select>
+	<delete id="deleteGradeById">
+        delete 
+        FROM grade
+        WHERE(grade_sub_id=#{grade_sub_id})
+
+	</delete>
+	<delete id="deleteAllGrades">
+		DELETE
+		FROM grade
+	</delete>
+</mapper>
