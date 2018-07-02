@@ -94,7 +94,7 @@ HelloWorldController.java
 ### 2. Console Program -> Spring Project
 * 기존에 만들었던 학생부 프로젝트를 Spring 기반 웹 프로젝트로 교체하기
   1. sourceTree를 이용해서 https://github.com/mskwon25/springstudy.git 프로젝트를 Clone한다.
-  2. sourcetree에서 branch를 선택하고 `feature/minseok_kwon` 형식의 새로운 브랜치를 생성한다
+  2. sourcetree에서 branch를 선택하고 `feature/영문이름` 형식의 새로운 브랜치를 생성한다
   (이후 master가 아닌 생성한 브랜치에서만 작업)
   3. sts를 실행한뒤 해당프로젝트 경로를 입력하고 프로젝트를 import시킨다.
   4. application.properties 파일에서 mysql관련 설정을 변경한다
