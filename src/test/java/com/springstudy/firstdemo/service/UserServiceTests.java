@@ -26,8 +26,8 @@ public class UserServiceTests {
 
     @Test
     public void addAndGetStudentTest() {
-        Student student1 = new Student(1, "이성경", "900810");
-        Student student2 = new Student(2, "이지은", "930516");
+        Student student1 = new Student(1, "김교수", "900810");
+        Student student2 = new Student(2, "박교수", "930516");
 
         userService.addStudent(student1);
         userService.addStudent(student2);
@@ -35,16 +35,16 @@ public class UserServiceTests {
 
         Student studentGet1 = userService.getStudentById(1);
         assertThat(studentGet1.getName(), is(student1.getName()));
-
+		
         Student studentGet2 = userService.getStudentById(2);
         assertThat(studentGet2.getName(), is(student2.getName()));
     }
 
     @Test
     public void deleteStudentTest() {
-        Student student1 = new Student(1, "이성경", "900810");
-        Student student2 = new Student(2, "이지은", "930516");
-        Student student3 = new Student(3, "김사랑", "780112");
+        Student student1 = new Student(1, "김교수", "900810");
+        Student student2 = new Student(2, "박교수", "930516");
+        Student student3 = new Student(3, "한교수", "780112");
 
         userService.addStudent(student1);
         userService.addStudent(student2);

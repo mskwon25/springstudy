@@ -6,27 +6,27 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>Student List</title>
+<title>Grade List</title>
 </head>
 <body>
 <%@ include file="common.jsp" %>
 <div class="container">
-	<input type="submit" value="데이터삽입" class="btn btn-primary" onclick="location.href='/insertUserForm'">
+	<input type="submit" value="데이터삽입" class="btn btn-primary" onclick="location.href='/insertGradeForm'">
 </div>
 <div class="container">
     <table class="table table-hover">
         <tr>
             <th>Student Id</th>
-            <th>Student Name</th>
-            <th>Student Birth</th>
+            <th>Subject Id</th>
+            <th>Score</th>
             <th>삭제</th>
         </tr>
         <c:forEach var="l" items="${list}">
             <tr>
-                <td>${l.id}</td>
-                <td>${l.name}</td>
-                <td>${l.dateOfBirth}</td>
-                <td><button class="btn btn-warning" onclick="location.href='/deleteUser/${l.id}'">삭제</button></td>
+                <td>${l.student_id}</td>
+                <td>${l.subject_id}</td>
+                <td>${l.score}</td>
+                <td><button class="btn btn-warning" onclick="location.href='/deleteGrade/${l.student_id}/${l.subject_id}'">삭제</button></td>
             </tr>
         </c:forEach>
           
