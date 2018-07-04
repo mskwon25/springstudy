@@ -14,14 +14,14 @@ import static org.junit.Assert.assertTrue;
 
 @RunWith(SpringRunner.class)
 @SpringBootTest
-public class UserServiceTests {
+public class StudentServiceTests {
 
     @Autowired
-    UserService userService;
+    StudentService studentService;
 
     @Before
     public void setUp() throws Exception {
-        userService.deleteAllStudents();
+    	studentService.deleteAllStudents();
     }
 
     @Test
@@ -29,14 +29,14 @@ public class UserServiceTests {
         Student student1 = new Student(1, "이성경", "900810");
         Student student2 = new Student(2, "이지은", "930516");
 
-        userService.addStudent(student1);
-        userService.addStudent(student2);
-        assertThat(userService.getAllStudents().size(), is(2));
+        studentService.addStudent(student1);
+        studentService.addStudent(student2);
+        assertThat(studentService.getAllStudents().size(), is(2));
 
-        Student studentGet1 = userService.getStudentById(1);
+        Student studentGet1 = studentService.getStudentById(1);
         assertThat(studentGet1.getName(), is(student1.getName()));
 
-        Student studentGet2 = userService.getStudentById(2);
+        Student studentGet2 = studentService.getStudentById(2);
         assertThat(studentGet2.getName(), is(student2.getName()));
     }
 
@@ -46,15 +46,15 @@ public class UserServiceTests {
         Student student2 = new Student(2, "이지은", "930516");
         Student student3 = new Student(3, "김사랑", "780112");
 
-        userService.addStudent(student1);
-        userService.addStudent(student2);
-        userService.addStudent(student3);
-        assertThat(userService.getAllStudents().size(), is(3));
+        studentService.addStudent(student1);
+        studentService.addStudent(student2);
+        studentService.addStudent(student3);
+        assertThat(studentService.getAllStudents().size(), is(3));
 
-        userService.deleteStudent(2);
-        assertThat(userService.getAllStudents().size(), is(2));
+        studentService.deleteStudent(2);
+        assertThat(studentService.getAllStudents().size(), is(2));
 
-        Student studentGet1 = userService.getStudentById(2);
+        Student studentGet1 = studentService.getStudentById(2);
         assertTrue(studentGet1 == null);
     }
 }

@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+        
+<mapper namespace="com.springstudy.firstdemo.mapper.SubjectMapper">
+	<insert id="registerSubject" parameterType="com.springstudy.firstdemo.model.Subject">
+		INSERT INTO subject(subject_id, subject_name)
+		VALUES (#{id}, #{name});
+	</insert>
+
+	<select id="getSubjectById" resultType="com.springstudy.firstdemo.model.Subject">
+		SELECT subject_id, subject_name
+		FROM subject
+		WHERE subject_id=#{id};
+	</select>
+	
+	<select id="getAllSubjects" resultType="com.springstudy.firstdemo.model.Subject">
+		SELECT subject_id, subject_name
+		FROM subject;
+	</select>
+
+	<delete id="deleteSubjectById">
+		DELETE 
+		FROM subject
+		WHERE subject_id=#{id};
+	</delete>
+
+	<delete id="deleteAllSubjects">
+		DELETE
+		FROM subject;
+	</delete>
+</mapper>
