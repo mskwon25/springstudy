@@ -5,10 +5,8 @@
 
 <mapper namespace="com.springstudy.firstdemo.mapper.StudentMapper">
     <insert id="registerStudent" parameterType="com.springstudy.firstdemo.model.Student">
-<<<<<<< HEAD:src/main/resources/mapper/StudentMapper.xml
 		INSERT INTO student(student_id, student_name, student_birthday)
 		VALUES (#{id}, #{name}, #{dateOfBirth});
-		
 	</insert>
     <select id="getStudentById" resultType="com.springstudy.firstdemo.model.Student">
 		SELECT student_id, student_name, student_birthday
@@ -23,18 +21,6 @@
 		DELETE
 		FROM student
 		WHERE student_id=#{id};
-=======
-
-	</insert>
-    <select id="getStudentById" resultType="com.springstudy.firstdemo.model.Student">
-
-	</select>
-    <select id="getAllStudents" resultType="com.springstudy.firstdemo.model.Student">
-
-	</select>
-	<delete id="deleteStudentById">
-
->>>>>>> master:target/classes/mapper/UserMapper.xml
 	</delete>
 	<delete id="deleteAllStudents">
 		DELETE

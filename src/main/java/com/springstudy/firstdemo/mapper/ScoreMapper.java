@@ -14,6 +14,8 @@ public interface ScoreMapper {
 	
 	List<Score> getScoresByStudentId(int studentId);
 	
+	List<Score> getAllScores();
+	
 	List<Score> getScoresBySubjectId(int subjectId);
 	
 	void deleteScoreById(int id);

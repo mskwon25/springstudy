@@ -7,7 +7,6 @@
     <insert id="registerStudent" parameterType="com.springstudy.firstdemo.model.Student">
 		INSERT INTO student(student_id, student_name, student_birthday)
 		VALUES (#{id}, #{name}, #{dateOfBirth});
-		
 	</insert>
     <select id="getStudentById" resultType="com.springstudy.firstdemo.model.Student">
 		SELECT student_id, student_name, student_birthday

@@ -3,14 +3,12 @@ package com.springstudy.firstdemo.service;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Repository;
 import org.springframework.stereotype.Service;
 
 import com.springstudy.firstdemo.mapper.ScoreMapper;
 import com.springstudy.firstdemo.model.Score;
 
 @Service
-@Repository
 public class ScoreService {
 
 	@Autowired
@@ -20,6 +18,10 @@ public class ScoreService {
 		scoreMapper.registerScore(score);
 	}
 
+	public List<Score> getAllScores(){
+		return scoreMapper.getAllScores();
+	}
+	
 	public List<Score> getScoresByStudentId(int studentId){
 		return scoreMapper.getScoresByStudentId(studentId);
 	}

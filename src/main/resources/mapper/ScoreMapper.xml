@@ -11,6 +11,11 @@
 		VALUES (#{id}, #{studentId}, #{subjectId}, #{score});
 	</insert>
 	
+	<select id="getAllScores" resultType="com.springstudy.firstdemo.model.Score">
+		SELECT score_id, student_id, subject_id, score
+		FROM score
+	</select>
+	
 	<select id="getScoresByStudentId" resultType="com.springstudy.firstdemo.model.Score">
 		SELECT score_id, student_id, subject_id, score
 		FROM score
