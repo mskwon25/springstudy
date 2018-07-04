@@ -11,6 +11,11 @@ public class Grade {
         this.student_id = student_id;
         this.subject_id = subject_id;
     }
+    
+    public Grade(int student_id, int subject_id) {
+        this.student_id = student_id;
+        this.subject_id = subject_id;
+    }
 
     public String getScore() {
         return score;

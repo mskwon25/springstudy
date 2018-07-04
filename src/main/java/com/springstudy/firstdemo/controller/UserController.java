@@ -30,38 +30,51 @@ public class UserController {
     
     @GetMapping("/")
     private String boardList(Model model) throws Exception{
-        
-        model.addAttribute("list", userService.getAllStudents());
-        
-        return "student"; 
+        try {
+        	 model.addAttribute("list", userService.getAllStudents());
+             
+             return "student"; 
+        }catch (Exception e) {
+    		return "redirect:/"; 
+        }
     }
     
     @PostMapping("/insertUser")
     private String userInsertProc(HttpServletRequest request) throws Exception{
-    	
-    	int user_id = Integer.parseInt(request.getParameter("id"));
-    	String user_name = request.getParameter("name");
-    	String user_birth = request.getParameter("birth");
-    	
-        Student student = new Student(user_id, user_name, user_birth);
-       
-        userService.addStudent(student);
-        
-        return "redirect:/";
+    	 try {
+    		 int user_id = Integer.parseInt(request.getParameter("id"));
+ 	    	 String user_name = request.getParameter("name");
+ 	    	 String user_birth = request.getParameter("birth");
+ 	    	
+ 	         Student student = new Student(user_id, user_name, user_birth);
+ 	       
+ 	         userService.addStudent(student);
+ 	        
+ 	         return "redirect:/";
+         }catch (Exception e) {
+     		return "redirect:/"; 
+         }
     }
     
     @GetMapping("/insertUserForm")
     private String userInsertForm(Model model) throws Exception{
-    	model.addAttribute("param", "insertUser");
-        return "insert";
+    	 try {
+    		 model.addAttribute("param", "insertUser");
+    	     return "insert";
+         }catch (Exception e) {
+     		return "redirect:/"; 
+         }
     }
 
 
     @GetMapping("/deleteUser/{student_id}")
     private String deleteStudent(@PathVariable int student_id, Model model) throws Exception{
-        
-        userService.deleteStudent(student_id);
-        
-        return "redirect:/"; 
+    	 try {
+    		 userService.deleteStudent(student_id);
+    	        
+    	     return "redirect:/"; 
+         }catch (Exception e) {
+     		return "redirect:/"; 
+         }
     }
 }

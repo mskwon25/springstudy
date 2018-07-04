@@ -19,38 +19,51 @@ public class SubjectController {
     
     @GetMapping("/subject")
     private String boardList(Model model) throws Exception{
-        
-        model.addAttribute("list", subjectService.getAllSubjects());
-        
-        return "subject"; 
+        try {
+        	 model.addAttribute("list", subjectService.getAllSubjects());
+             
+             return "subject"; 
+        }catch (Exception e) {
+    		return "redirect:/subject"; 
+        }
     }
     
     @PostMapping("/insertSubject")
     private String subjectInsertProc(HttpServletRequest request) throws Exception{
-    	
-    	int subject_id = Integer.parseInt(request.getParameter("id"));
-    	String subject_name = request.getParameter("name");
-    	int professor_id = Integer.parseInt(request.getParameter("professor_id"));
-    	
-        Subject subject = new Subject(subject_id, subject_name, professor_id);
-       
-        subjectService.addSubject(subject);
-        
-        return "redirect:/subject";
+    	try {
+    		int subject_id = Integer.parseInt(request.getParameter("id"));
+        	String subject_name = request.getParameter("name");
+        	int professor_id = Integer.parseInt(request.getParameter("professor_id"));
+        	
+            Subject subject = new Subject(subject_id, subject_name, professor_id);
+           
+            subjectService.addSubject(subject);
+            
+            return "redirect:/subject";
+        }catch (Exception e) {
+    		return "redirect:/subject"; 
+        }
     }
     
     @GetMapping("/insertSubjectForm")
     private String subjectInsertForm(Model model) throws Exception{
-    	model.addAttribute("param", "insertSubject");
-        return "insert";
+    	try {
+    		model.addAttribute("param", "insertSubject");
+            return "insert";
+        }catch (Exception e) {
+    		return "redirect:/subject"; 
+        }
     }
 
 
     @GetMapping("/deleteSubject/{subject_id}")
     private String deleteSubject(@PathVariable int subject_id, Model model) throws Exception{
-        
-        subjectService.deleteSubject(subject_id);
-        
-        return "redirect:/subject"; 
+    	try {
+    		subjectService.deleteSubject(subject_id);
+            
+            return "redirect:/subject"; 
+        }catch (Exception e) {
+    		return "redirect:/subject"; 
+        }
     }
 }

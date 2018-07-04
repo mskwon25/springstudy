@@ -20,6 +20,8 @@
 		strTitle = "교수 입력";
 	}else if(param.equals("insertSubject")){
 		strTitle = "과목 입력";
+	}else if(param.equals("insertGrade")){
+		strTitle = "성적 입력";
 	}
 %>
 <div class="container">
@@ -28,15 +30,17 @@
  
 <div class="container">
     <form action="/<%=param%>" method="post">
-      <div class="form-group">
-        <label for="id">번호</label>
-        <input type="text" class="form-control" id="id" name="id" placeholder="번호를 입력하세요.">
-      </div>
-      <div class="form-group">
-        <label for="name">이름</label>
-        <input type="text" class="form-control" id="name" name="name" placeholder="이름을 입력하세요.">
-      </div>
-      <%if(param.equals("insertUser")||param.equals("insertProfessor")){ %>
+      <%if(!param.equals("insertGrade")){ %>
+	      <div class="form-group">
+	        <label for="id">번호</label>
+	        <input type="text" class="form-control" id="id" name="id" placeholder="번호를 입력하세요.">
+	      </div>
+	      <div class="form-group">
+	        <label for="name">이름</label>
+	        <input type="text" class="form-control" id="name" name="name" placeholder="이름을 입력하세요.">
+	      </div>
+      <%}
+      if(param.equals("insertUser")||param.equals("insertProfessor")){ %>
 	      <div class="form-group">
 	        <label for=birth">생일</label>
 	        <input type="text" name="birth" id="birth" size="12" />
@@ -46,6 +50,21 @@
 	      <div class="form-group">
 	        <label for="professor_id">교수번호</label>
 	        <input type="text" class="form-control" id="professor_id" name="professor_id" placeholder="교수번호를 입력하세요.">
+     	 </div>
+      <%
+      }
+      if(param.equals("insertGrade")){ %>
+	      <div class="form-group">
+	        <label for="student_id">학생번호</label>
+	        <input type="text" class="form-control" id="student_id" name="student_id" placeholder="학생번호를 입력하세요.">
+     	 </div>
+     	 <div class="form-group">
+	        <label for="subject_id">과목번호</label>
+	        <input type="text" class="form-control" id="subject_id" name="subject_id" placeholder="과목번호를 입력하세요.">
+     	 </div>
+     	 <div class="form-group">
+	        <label for=""score"">성적</label>
+	        <input type="text" class="form-control" id="score" name="score" placeholder="성적을 입력하세요.">
      	 </div>
       <%
       }

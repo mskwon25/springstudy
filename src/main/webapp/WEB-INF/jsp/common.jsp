@@ -20,7 +20,7 @@
 	<button class="btn btn-info" onclick="location.href='/'">학생</button>
 	<button class="btn btn-info" onclick="location.href='/professor'">교수</button>
 	<button class="btn btn-info" onclick="location.href='/subject'">과목</button>
-	<button class="btn btn-info" onclick="location.href='/'">성적</button>
+	<button class="btn btn-info" onclick="location.href='/grade'">성적</button>
 </center>
 <br>
  
