@@ -20,7 +20,7 @@ public class AllServiceTests {
     @Autowired
     StudentService userService;
     @Autowired
-    ProfService profService;
+    ProfessorService profService;
     SubjectService subservice;
     GradeService gradeservice;
 

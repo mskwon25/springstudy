@@ -10,7 +10,7 @@ import java.util.List;
 
 @Service
 @Repository
-public class ProfService {
+public class ProfessorService {
 
     @Autowired
     ProfMapper profMapper;
