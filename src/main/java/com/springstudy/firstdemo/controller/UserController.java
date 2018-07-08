@@ -24,4 +24,9 @@ public class UserController {
         model.addAttribute("message", this.message);
         return "student";
     }
+
+	@GetMapping("/react.do")
+	public String welcome2(Model model){
+		return "";
+	}
 }
