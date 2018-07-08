@@ -5,6 +5,7 @@ public class Student {
     private int id;
     private String name;
     private String dateOfBirth;
+	private String courseName;
 
     public Student(int id, String name, String birth) {
         this.id = id;
