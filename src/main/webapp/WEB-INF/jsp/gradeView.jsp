@@ -7,6 +7,11 @@
 <title>Insert title here</title>
 </head>
 <body>
-grade jsp
+
+	grade_num : ${grade.grade_num}<br />
+	grade_student_id : ${grade.grade_student_id}<br />
+	grade_sub_id : ${grade.grade_sub_id } <br />
+	grade_score : ${grade.grade_score } <br />
+	
 </body>
 </html>

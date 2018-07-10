@@ -22,6 +22,6 @@ public class UserController {
     public String welcome(Model model) {
         model.addAttribute("time", new Date());
         model.addAttribute("message", this.message);
-        return "student";
+        return "main";
     }
 }
