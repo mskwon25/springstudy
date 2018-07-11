@@ -13,7 +13,9 @@
         	<result property="birthday" column="prof_birthday" />
         </resultMap>
     <insert id="registerProfessor" parameterType="com.springstudy.firstdemo.model.Professor">
-        INSERT INTO professor values(#{prof_num},#{prof_name},#{prof_birthday},#{prof_sub})
+        INSERT INTO professor(prof_num,prof_name,prof_birthday,prof_sub)
+        values(#{prof_num},#{prof_name},#{prof_birthday},#{prof_sub})
+        
 	</insert>
     <select id="getProfessorById" resultType="com.springstudy.firstdemo.model.Professor">
         SELECT prof_name FROM professor WHERE(prof_num=#{prof_num})

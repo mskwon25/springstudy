@@ -17,6 +17,14 @@ public class Professor {
 		this.prof_birthday = prof_birthday;
 		this.prof_sub = prof_sub;
 	}
+	
+	public Professor(Professor professor)
+	{
+		this.prof_num = professor.getProf_num();
+		this.prof_name = professor.getProf_name();
+		this.prof_birthday = professor.getProf_birthday();
+		this.prof_sub = professor.getProf_sub();
+	}
 
 	public int getProf_num() {
 		return prof_num;

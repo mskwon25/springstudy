@@ -16,7 +16,7 @@
 			</form>
 			</td>
 			<td>
-				<form method="get" action="/professor">
+				<form method="get" action="/professorView">
 				<button type="submit">±³¼ö</button>
 			</form>
 			</td>
