@@ -1,14 +1,11 @@
 package com.springstudy.firstdemo.controller;
 
-import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
 
 import com.springstudy.firstdemo.model.Professor;
 import com.springstudy.firstdemo.service.ProfessorService;
@@ -16,24 +13,31 @@ import com.springstudy.firstdemo.service.ProfessorService;
 @Controller
 public class ProfessorController {
 	@Autowired
-    ProfessorService professorservice;
+    ProfessorService professorService;
 	
-	@GetMapping("/professorView")
-	public String professor_main(Model model) {
-		System.out.println("professorController");
-		//작업 처리후 professor
+	@RequestMapping(value="/professorView/add",method=RequestMethod.POST)
+	public String addProfessor(Professor professor) {
+		professorService.addProfessor(professor);
+		return "redirect:/professorView";
+	}
+	
+	@RequestMapping(value="/professorView", method=RequestMethod.GET)
+	public String getAllProfessors(Model model) { 
+		// Model객체 : 컨트롤러에서 뷰로 전환할 때 데이터를 가지고 있는 객체, 컨트롤러가 뷰로 model 객체를 넘겨 뷰에서 model 객체의 데이터 이용 가능
+		model.addAttribute("professorList", professorService.getAllProfessors());
+		System.out.println("list 사이즈 : " + professorService.getAllProfessors().size());
 		return "professorView";
 	}
 	
-	@RequestMapping(value="/professorView/add",method=RequestMethod.GET)
-	public String addProfessor(Professor professor) {
-		int prof_num=professor.getProf_num();
-		String prof_name=professor.getProf_name();
-		String prof_sub=professor.getProf_sub();
-		String prof_birthday=professor.getProf_birthday();
-		System.out.println(prof_num+prof_name+prof_sub+prof_birthday);
-		Professor profAddInstance = new Professor(professor);
-		professorservice.addProfessor(profAddInstance);
+	@RequestMapping(value="/professorView/deleteByNum", method=RequestMethod.POST)
+	public String deleteProfessor(Professor professor) {
+		professorService.deleteProfessor(professor.getProf_num());
 		return "redirect:/professorView";
+	}
+	
+	@RequestMapping(value="/professorView/getById", method=RequestMethod.GET)
+	public String getProfessor(Professor professor, Model model) {
+		model.addAttribute("professorGetById", professorService.getProfessorById(professor.getProf_num()));
+		return "professorView";
 	}
 }

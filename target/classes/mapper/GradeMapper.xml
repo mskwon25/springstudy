@@ -13,24 +13,34 @@
         	<result property="grade_score" column="grade_score" />
         </resultMap>
     <insert id="registerGrade" parameterType="com.springstudy.firstdemo.model.Grade">
-        INSERT INTO grade values(#{grade_num},#{grade_student_id},#{grade_sub_id},#{grade_score})
+        INSERT INTO grade values(#{grade_num},#{grade_student_id},#{grade_sub_id},#{grade_score});
 	</insert>
-    <select id="getGradeById" resultType="com.springstudy.firstdemo.model.Grade">
-        SELECT * FROM grade
+    
+    <select id="getGradeByStudentId" resultType="com.springstudy.firstdemo.model.Grade">
+        SELECT * 
+        FROM grade 
+        WHERE(grade_student_id=#{grade_student_id});
+        
+    </select>
+        
+    <select id="getGradeBySubjectId" resultType="com.springstudy.firstdemo.model.Grade">
+        SELECT * 
+        FROM grade
+        WHERE (grade_sub_id=${grade_sub_id});
 
 	</select>
     <select id="getAllGrades" resultType="com.springstudy.firstdemo.model.Grade">
-        SELECT * FROM grade
+        SELECT * FROM grade;
 
 	</select>
 	<delete id="deleteGradeById">
         delete 
         FROM grade
-        WHERE(grade_sub_id=#{grade_sub_id})
+        WHERE(grade_num=#{grade_num});
 
 	</delete>
 	<delete id="deleteAllGrades">
 		DELETE
-		FROM grade
+		FROM grade;
 	</delete>
 </mapper>

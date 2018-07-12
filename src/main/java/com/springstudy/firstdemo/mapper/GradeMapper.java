@@ -11,7 +11,9 @@ import java.util.List;
 public interface GradeMapper {
     void registerGrade(Grade Grade);
 
-    Grade getGradeById(int id);
+    Grade getGradeByStudentId(int id);
+    
+    Grade getGradeBySubjectId(int id);
 
     List<Grade> getAllGrades();
 

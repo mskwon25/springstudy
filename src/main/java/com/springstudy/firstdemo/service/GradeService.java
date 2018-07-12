@@ -19,8 +19,12 @@ public class GradeService {
         gradeMapper.registerGrade(grade);
     }
 
-    public Grade getGradeById(int gradeId) {
-        return gradeMapper.getGradeById(gradeId);
+    public Grade getGradeByStudentId(int gradeStudentId) {
+        return gradeMapper.getGradeByStudentId(gradeStudentId);
+    }
+    
+    public Grade getGradeBySubjectId(int gradeStudentId) {
+        return gradeMapper.getGradeBySubjectId(gradeStudentId);
     }
 
     public List<Grade> getAllGrades() {

@@ -16,12 +16,12 @@ public class FirstdemoApplication {
         SpringApplication.run(FirstdemoApplication.class, args);
     }
     
-    public SqlSessionFactory sqlSessionFactory(DataSource dataSource) throws Exception{
+   /* public SqlSessionFactory sqlSessionFactory(DataSource dataSource) throws Exception{
     	SqlSessionFactoryBean sf = new SqlSessionFactoryBean();
     	sf.setDataSource(dataSource);
     	
     	Resource[] res = new PathMatchingResourcePatternResolver().getResources("src/main/resources/mapper/*.xml");
     	sf.setMapperLocations(res);
     	return sf.getObject();
-    }
+    }*/
 }

@@ -11,7 +11,7 @@
 	<table>
 		<tr> 메뉴선택
 			<td>
-				<form method="get" action="/student">
+				<form method="get" action="/studentView">
 				<button type="submit">학생</button>
 			</form>
 			</td>
@@ -23,12 +23,12 @@
 		</tr>
 		</tr>
 			<td>
-				<form method="get" action="/subject">
+				<form method="get" action="/subjectView">
 				<button type="submit">과목</button>
 			</form>
 			</td>
 			<td>
-				<form method="get" action="/grade">
+				<form method="get" action="/gradeView">
 				<button type="submit">성적</button>
 			</form>
             </td>

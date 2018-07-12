@@ -13,26 +13,28 @@
         	<result property="birthday" column="prof_birthday" />
         </resultMap>
     <insert id="registerProfessor" parameterType="com.springstudy.firstdemo.model.Professor">
-        INSERT INTO professor(prof_num,prof_name,prof_birthday,prof_sub)
-        values(#{prof_num},#{prof_name},#{prof_birthday},#{prof_sub})
+        INSERT INTO professor(prof_num,prof_name,prof_sub,prof_birthday)
+        values(#{prof_num},#{prof_name},#{prof_sub},#{prof_birthday});
         
 	</insert>
     <select id="getProfessorById" resultType="com.springstudy.firstdemo.model.Professor">
-        SELECT prof_name FROM professor WHERE(prof_num=#{prof_num})
-
+        SELECT prof_num,prof_name,prof_sub,prof_birthday 
+        FROM professor 
+        WHERE(prof_num=#{prof_num});
+    
 	</select>
     <select id="getAllProfessors" resultType="com.springstudy.firstdemo.model.Professor">
-        SELECT * FROM professor
+        SELECT prof_num,prof_name,prof_sub,prof_birthday 
+        FROM professor;
 
 	</select>
 	<delete id="deleteProfessorById">
-        delete 
+        DELETE
         FROM professor
-        WHERE(prof_num=#{prof_num})
-
+        WHERE(prof_num=#{prof_num});
 	</delete>
 	<delete id="deleteAllProfessors">
 		DELETE
-		FROM professor
+		FROM professor;
 	</delete>
 </mapper>
